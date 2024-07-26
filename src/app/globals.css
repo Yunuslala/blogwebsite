@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@media (max-width: 400px) {
+  .max-w-xs-header {
+    width: 80%; /* or any other width you prefer */
+    display: flex;
+    margin-left: auto;
+    justify-content: space-between;
+    
+  }
+}
+
+
