@@ -11,7 +11,7 @@ export default function Page() {
   }, []);
   const fetch = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/post");
+      const { data } = await axios.get("/api/post");
       setdata(data.data);
     } catch (error) {}
   };

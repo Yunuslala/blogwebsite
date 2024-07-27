@@ -64,7 +64,7 @@ const BlogForm = ({ id }) => {
         content,
         image: url,
       };
-      const { data } = await axios.post('http://localhost:3000/api/post', payload, {
+      const { data } = await axios.post('/api/post', payload, {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const BlogForm = ({ id }) => {
         content,
         image: url,
       };
-      const { data } = await axios.patch(`http://localhost:3000/api/post/${id}`, payload, {
+      const { data } = await axios.patch(`api/post/${id}`, payload, {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',

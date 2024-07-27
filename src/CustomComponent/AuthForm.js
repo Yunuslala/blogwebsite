@@ -18,7 +18,7 @@ const AuthForm = () => {
       password,email,action:"login"
     }
     try {
-      const {data}=await axios.post(`http://localhost:3000/api/auth`,payload);
+      const {data}=await axios.post("/api/auth",payload);
       if(data.success){
         SuccessToast(data.msg);
         localStorage.setItem("loginToken",data.token);

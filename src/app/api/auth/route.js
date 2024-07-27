@@ -11,6 +11,7 @@ import { serialize } from 'cookie';
 export async function POST(request) {
   const body = await request.json(); // Parse JSON body
   const {action}=body;
+  
   if(action=="register"){
     return handleRegister(body);
   }
@@ -81,7 +82,6 @@ async function handleRegister({ name, email, password, image }) {
 async function handleLogin({ email, password }) {
   try {
     await connectToDatabase();
-    
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json(

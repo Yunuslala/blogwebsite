@@ -51,7 +51,7 @@ const SignUp = () => {
         name,email,password,image:url,action:"register"
       }
 
-      const { data } = await axios.post(`http://localhost:3000/api/auth`,payload);
+      const { data } = await axios.post(`/api/auth`,payload);
 
       if(data.success){
         SuccessToast(data.msg);

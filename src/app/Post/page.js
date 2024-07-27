@@ -17,7 +17,7 @@ export default function Page(){
         if(id){
             const token=getCookie("token")
             const fetchBlog=async()=>{
-                const {data}=await axios.get(`http://localhost:3000/api/post/${id}`,{
+                const {data}=await axios.get(`/api/post/${id}`,{
                     headers: {
                         Authorization: token,
                         "Content-Type": "application/json",

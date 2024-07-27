@@ -22,7 +22,7 @@ const IndividBlogPage = ({ blog }) => {
   const deleteblog = async (id) => {
     try {
         const token = getCookie("token");
-        const { data } = await axios.delete(`http://localhost:3000/api/post/${id}`, {
+        const { data } = await axios.delete(`/api/post/${id}`, {
           headers: {
             Authorization: token,
             "Content-Type": "application/json",

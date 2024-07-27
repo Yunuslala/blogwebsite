@@ -27,7 +27,7 @@ const Sidebar = () => {
     if (token) {
       const fetchProfile = async () => {
         try {
-          const { data } = await axios.get("http://localhost:3000/api/auth", {
+          const { data } = await axios.get("/api/auth", {
             headers: {
               Authorization: token,
               "Content-Type": "application/json",
