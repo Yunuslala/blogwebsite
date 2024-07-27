@@ -28,7 +28,7 @@ const AuthForm = () => {
         AlertToast(data.msg)
       }
     } catch (error) {
-      console.log("error",error)
+    
       ErrorToast(error.response.data.msg)
     }
    

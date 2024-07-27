@@ -6,7 +6,7 @@ export async function GET(request,{params}) {
   await connectToDatabase();
   try {
     const {id}=params;
-    console.log("id",id)
+
     const token = request.headers.get('authorization');
     if (!token) {
       return NextResponse.json(
@@ -28,7 +28,7 @@ export async function GET(request,{params}) {
     return NextResponse.json({ success: true,msg:"Invidual blog dispersed", data: findBlog },{status:200});
   } catch (error) {
     console.log("error",error)
-    return NextResponse.json({ success: false, }, { status: 500 });
+    return NextResponse.json({ success: false,msg:"Internal Server Error" }, { status: 500 });
   }
 }
 
@@ -62,9 +62,9 @@ export async function PATCH(request,{params}) {
     return NextResponse.json({ success: false,msg:"You are not authorised to edit this blog " },{status:400});
   }
     const {image,title,description,content}=body;
-    console.log("requestbody",body)
+  
     const CreateBlog=await Blog.findOneAndUpdate({author:decode.UserId,_id:id},{image:image?image:findBlogUser?.image,title:title?title:findBlogUser.title,description:description?description:findBlogUser.description,content:content?content:findBlogUser.content},{new:true});
-    console.log("blogupdated",CreateBlog)
+
 
     return NextResponse.json({ success: true, data: CreateBlog,msg:"Blog Has been updated" },{status:200});
   } catch (error) {
@@ -100,7 +100,7 @@ export async function DELETE(request,{params}) {
   if(!findBlogUser){
     return NextResponse.json({ success: false,msg:"You are not authorised to delete this blog " },{status:400});
   }
-    console.log("id",id)
+  
     await Blog.findOneAndDelete({_id:id})
 
     return NextResponse.json({ success: true,msg:"Blog Has been deleted successfully" },{status:200});

@@ -27,7 +27,7 @@ export async function POST(request) {
 export async function GET(request) {
   await connectToDatabase();
   const token = request.headers.get('authorization');
-  console.log("tokenprofile",token)
+
   if (!token) {
     return NextResponse.json(
       { success: false, msg: "Go first Login You are not authorised" },

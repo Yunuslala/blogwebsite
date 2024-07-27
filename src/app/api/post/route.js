@@ -15,7 +15,7 @@ export async function GET(req) {
     return NextResponse.json({ success: true, data: posts },{status:200});
   } catch (error) {
     console.log("error",error)
-    return NextResponse.json({ success: false, }, { status: 500 });
+    return NextResponse.json({ success: false,msg:"Internal server error" }, { status: 500 });
   }
 }
 
@@ -40,7 +40,7 @@ export async function POST(req) {
     );
   }
     const {image,title,description,content}=body;
-    console.log("req.body",req.body);
+   
 
     if(!title || !description || !content || !image  ){
       return NextResponse.json({success:false,msg:"Please Provide All Fields"})

@@ -12,17 +12,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, setProfile } from "@/Redux/Slices/AuthSlice";
 import getCookie from "@/utils/cookies";
+import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
   const [session, setsession] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
+  const router=useRouter();
   const { isLogged } = useSelector((state) => state.AuthSlice);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("pagerendered again");
+  
     const token = getCookie("token");
-    console.log("cookie", token);
+ 
     if (token) {
       const fetchProfile = async () => {
         try {
@@ -33,7 +34,7 @@ const Sidebar = () => {
             },
           });
           if (data.success) {
-            console.log("data", data);
+        
             setsession(data.data);
             dispatch(setProfile(data.data));
           }
@@ -46,6 +47,7 @@ const Sidebar = () => {
   }, [isLogged]);
   const signOut = async () => {
     document.cookie = `token=; Max-Age=-99999999; path=/;`;
+    router.push("/")
     dispatch(logOut());
   };
 

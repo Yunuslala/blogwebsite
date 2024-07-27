@@ -16,7 +16,7 @@ const BlogForm = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   useEffect(() => {
-    console.log("id", id, IndividualBlog);
+
 
     if (id && IndividualBlog) {
       setTitle(IndividualBlog.title || '');
@@ -76,7 +76,7 @@ const BlogForm = ({ id }) => {
         AlertToast(data.msg);
       }
     } catch (error) {
-      console.log('error', error);
+
       ErrorToast(error.response.data.msg);
     }
   };
@@ -104,7 +104,7 @@ const BlogForm = ({ id }) => {
         AlertToast(data.msg);
       }
     } catch (error) {
-      console.log('error', error);
+     
       ErrorToast(error.response.data.msg);
     }
   };

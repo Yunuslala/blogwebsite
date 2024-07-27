@@ -28,7 +28,7 @@ export default function Page(){
                     setdata(data.data);
                     dispatch(FetchIndiv(data.data))
                 } catch (error) {
-                    console.log("error",error)
+                    
                 }
                
             }

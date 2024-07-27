@@ -23,7 +23,7 @@ export default function Page(){
                         "Content-Type": "application/json",
                       },
                 })
-                console.log("blogdatapar",data.data)
+              
                 
                 dispatch(FetchIndiv(data.data))
             }

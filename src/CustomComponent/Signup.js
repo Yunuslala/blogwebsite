@@ -40,7 +40,7 @@ const SignUp = () => {
     e.preventDefault();
 
     if (loading) {
-      console.log("Image is still uploading...");
+      
       return;
     }
 
@@ -52,7 +52,7 @@ const SignUp = () => {
       }
 
       const { data } = await axios.post(`http://localhost:3000/api/auth`,payload);
-      console.log("data", data);
+
       if(data.success){
         SuccessToast(data.msg);
         router.push("/Auth/SignIn")
