@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import { AlertToast, ErrorToast, SuccessToast } from "./Dialog";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -102,6 +103,11 @@ const SignUp = () => {
             onChange={uploadImage}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
           />
+           {url && (
+            <div className="mt-2">
+              <img src={url} alt="Blog" className="w-[200px] h-auto rounded-lg" />
+            </div>
+          )}
           {loading && <p>Loading...</p>}
           {uploadSuccess && !loading && <p>Image uploaded successfully!</p>}
         </div>
